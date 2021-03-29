@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ContosoWebCore.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContosoWebCore
 {
@@ -24,6 +26,7 @@ namespace ContosoWebCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<ContosoUniversityDataContext>(opt => opt.UseSqlServer("Data Source = (localdb)\\ProjectsV13;Initial Catalog=ContosoUniversityData;Integrated Security=True"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
